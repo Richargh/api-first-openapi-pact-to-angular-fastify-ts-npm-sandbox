@@ -1,0 +1,7 @@
+{
+  "name": "shared-dto-codegen-ts-npm-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": ["frontend", "backend"]
+}
