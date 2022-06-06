@@ -1,8 +1,8 @@
-import type {Announcement, News, Post} from "./posts/post";
-import type {AnnouncementDto, NewsDto, PostDto} from "../../generated/api/src/models";
-import {IntendedAudiences, isAnnouncement, isNews} from "./posts/post";
-import {NewsDtoIntendedAudienceEnum} from "../../generated/api/src/models";
-import {NonExhaustiveSwitch} from "./common/error/NonExhaustiveSwitch";
+import type {Announcement, News, Post} from "./post";
+import type {AnnouncementDto, NewsDto, PostDto} from "../../../generated/api/src/models";
+import {IntendedAudiences, isAnnouncement, isNews} from "./post";
+import {NewsDtoIntendedAudienceEnum} from "../../../generated/api/src/models";
+import {NonExhaustiveSwitch} from "../common/error/NonExhaustiveSwitch";
 
 export function postOutToDto(post: Post): PostDto {
     if(isNews(post)){

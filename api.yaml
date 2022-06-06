@@ -19,9 +19,20 @@ paths:
 components:
   schemas:
     PostDtosList:
-      "type": "array"
-      "items":
-        $ref: "#/components/schemas/PostDto"
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/PostDto"
+        links:
+          type: object
+          properties:
+            next:
+              type: string
+      required:
+        - items
+        - links
     PostDto:
       type: object
       discriminator:

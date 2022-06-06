@@ -1,5 +1,9 @@
 import {Entity} from "../commons/types/entity";
-import {AnnouncementDto, NewsDto, PostDto } from "../../../../generated/api/src";
+import {AnnouncementDto, NewsDto, PostDto, PostDtosList } from "../../../../generated/api/src";
+
+export interface PostVms extends Omit<PostDtosList, 'items'> {
+    items: PostVm[]
+}
 
 export interface PostVm extends PostDto, Entity {
     title: string

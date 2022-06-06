@@ -24,6 +24,6 @@ export class PostsComponent {
   async refreshPosts(): Promise<void> {
     log.info('refreshing posts');
     const vms = await this.postsService.posts();
-    this.posts = vms;
+    this.posts = vms.items;
   }
 }

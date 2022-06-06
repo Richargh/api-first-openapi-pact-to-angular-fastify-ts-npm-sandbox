@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {PostsApi, Configuration} from "../../../../generated/api/src"
-import {PostVm} from "./post.vm";
+import {PostVms} from "./post.vm";
 import {Logger} from "../commons/logging/logger";
 import {postInToVm} from "./post-vm-api-mapping";
 
@@ -14,9 +14,13 @@ export class PostsService {
         basePath: 'http://localhost:8080'
     }));
 
-    async posts(): Promise<PostVm[]> {
-        const dtos = await this.postsApi.getPosts();
-        return Promise.resolve(dtos.map(postInToVm));
+    async posts(): Promise<PostVms> {
+        const dto = await this.postsApi.getPosts();
+        const vm: PostVms = {
+            ...dto,
+            items: dto.items.map(postInToVm),
+        }
+        return Promise.resolve(vm);
     }
 }
 

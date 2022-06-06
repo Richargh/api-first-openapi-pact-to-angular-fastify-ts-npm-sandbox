@@ -2,10 +2,10 @@
   "name": "shared-dto-codegen-ts-npm-sandbox-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

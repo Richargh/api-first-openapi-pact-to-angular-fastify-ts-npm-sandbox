@@ -5,19 +5,13 @@ import {NonExhaustiveSwitch} from "../commons/error/NonExhaustiveSwitch";
 export function postOutToDto(post: PostVm): PostDto {
     if(isNewsVm(post)){
         const dto: NewsDto = {
-            id: post.id,
-            createdBy: post.createdBy,
-            title: post.title,
-            intendedAudience: post.intendedAudience
+            ...post,
         };
         return dto;
     } else if(isAnnouncementVm(post)){
         const dto: AnnouncementDto = {
-            id: post.id,
-            createdBy: post.createdBy,
-            title: post.title,
+            ...post,
             expectedOn: post.expectedOn.toISOString(),
-            eventSize: post.eventSize
         };
         return dto;
     }
@@ -28,19 +22,13 @@ export function postOutToDto(post: PostVm): PostDto {
 export function postInToVm(dto: PostDto): PostVm {
     if(isNewsDto(dto)){
         const vm: NewsVm = {
-            id: dto.id,
-            createdBy: dto.createdBy,
-            title: dto.title,
-            intendedAudience: dto.intendedAudience
+            ...dto
         };
         return vm;
     } else if(isAnnouncementDto(dto)){
         const vm: AnnouncementVm = {
-            id: dto.id,
-            createdBy: dto.createdBy,
-            title: dto.title,
-            expectedOn: new Date(dto.expectedOn),
-            eventSize: dto.eventSize
+            ...dto,
+            expectedOn: new Date(dto.expectedOn)
         };
         return vm;
     }

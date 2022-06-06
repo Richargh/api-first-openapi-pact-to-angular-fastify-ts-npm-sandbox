@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import {PostController} from "./posts/post-controller";
+import {PostAppService} from "./posts/post-app-service";
 
 const server = fastify();
 
@@ -16,7 +17,7 @@ server.register(require('@fastify/cors'), (instance) => ({
     }
 }))
 
-const postController = new PostController().init();
+const postController = new PostController(new PostAppService().init());
 
 server.get('/ping', async (request, reply) => {
     return 'pong\n'

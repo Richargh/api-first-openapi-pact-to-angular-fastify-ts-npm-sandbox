@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
-time http GET localhost:8080/posts
+time http GET http://localhost:8080/posts
 
