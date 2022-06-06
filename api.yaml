@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Posts Api
+paths:
+  /posts:
+    get:
+      description: Returns all posts
+      tags: ["Posts"]
+      operationId: "getPosts"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/PostDtosList"
+
+components:
+  schemas:
+    PostDtosList:
+      "type": "array"
+      "items":
+        $ref: "#/components/schemas/PostDto"
+    PostDto:
+      type: object
+      discriminator:
+        propertyName: postType
+      properties:
+        id:
+          type: string
+        createdBy:
+          type: string
+        title:
+          type: string
+      required:
+      - id
+      - createdBy
+      - title
+    NewsDto:  ## "News" will be used as the discriminator value
+      description: Some sort of news
+      allOf:
+      - $ref: '#/components/schemas/PostDto'
+      - type: object
+        properties:
+          intendedAudience:
+            type: string
+            description: Who is the intended audience
+            enum:
+            - clueless
+            - lazy
+            - adventurous
+            - aggressive
+        required:
+        - intendedAudience
+    AnnouncementDto:  ## "Post" will be used as the discriminator value
+      description: An announcement for an event some time in the future
+      allOf:
+      - $ref: '#/components/schemas/PostDto'
+      - type: object
+        properties:
+          expectedOn:
+            type: string
+            description: the date when the event is expected to take place
+          eventSize:
+            type: number
+            description: for how many people the event will be
+            default: 0
+            minimum: 0
+        required:
+        - expectedOn

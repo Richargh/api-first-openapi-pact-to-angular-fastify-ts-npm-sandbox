@@ -13,7 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -23,5 +23,7 @@
     "noUnusedParameters": false,
     "importsNotUsedAsValues": "error",
     "checkJs": true
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "../node_modules", "../generated/**/*"]
 }
