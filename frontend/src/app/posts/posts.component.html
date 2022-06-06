@@ -1,6 +1,9 @@
 <div class="content" role="main">
-  <h1>Hi!</h1>
-  <span>{{ title }} app is running!</span>
+  <h1>Posts</h1>
+  <ol>
+    <li *ngFor="let post of posts; trackBy:trackBy.id">{{post.text}}</li>
+  </ol>
+  <button (click)="refreshPosts()">Refresh Posts</button>
 </div>
 
 
