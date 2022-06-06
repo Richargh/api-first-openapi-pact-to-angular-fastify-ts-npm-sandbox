@@ -1,7 +1,7 @@
 <div class="content" role="main">
   <h1>Posts</h1>
   <ol>
-    <li *ngFor="let post of posts; trackBy:trackBy.id">{{post.text}}</li>
+    <li *ngFor="let post of posts; trackBy:trackBy.id">{{post.title}}</li>
   </ol>
   <button (click)="refreshPosts()">Refresh Posts</button>
 </div>
