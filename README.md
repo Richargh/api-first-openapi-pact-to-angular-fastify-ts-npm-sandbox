@@ -1,9 +1,11 @@
-# Shared Dto via Codegen (Sandbox)
+# Api First Angular + Fastify App (Sandbox)
 
 **Features**:
 
-* Dtos and Apis generated from OpenApi (Swagger) Schema
-* Frontend and Backend use generated Dtos, Frontend uses generated Api to access backend
+* **Api First:** Dtos and Apis generated from OpenApi (Swagger) Schema, not Schema written after implementation
+  * Frontend and Backend use generated Dtos to communicate
+  * Frontend uses generated Api to access backend
+* Npm Workspaces
 * Frontend
   * TypeScript+Angular
 * Backend
