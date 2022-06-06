@@ -1,0 +1,9 @@
+{
+    "require": [
+        "ts-node/register",
+        "./tests/subsystem/setup.mocha.ts"
+    ],
+    "spec": [
+        "./tests/subsystem/**/*.spec.ts"
+    ]
+}

@@ -1,26 +1,27 @@
 {
-  "name": "shared-dto-codegen-ts-npm-sandbox-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "ts-node src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@fastify/cors": "^7.0.0",
-    "fastify": "^3.29.0"
-  },
-  "devDependencies": {
-    "@types/chai": "^4.3.1",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^17.0.40",
-    "chai": "^4.3.6",
-    "mocha": "^10.0.0",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
-  }
+    "name": "shared-dto-codegen-ts-npm-sandbox-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "start": "ts-node src/server.ts",
+        "test:unit": "mocha --config=tests/unit/.mocharc.json",
+        "test:subsystem": "mocha --config=tests/subsystem/.mocharc.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@fastify/cors": "^7.0.0",
+        "fastify": "^3.29.0"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.3.1",
+        "@types/mocha": "^9.1.1",
+        "@types/node": "^17.0.40",
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0",
+        "ts-node": "^10.8.1",
+        "typescript": "^4.7.3"
+    }
 }
