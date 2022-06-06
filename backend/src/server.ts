@@ -1,31 +1,8 @@
-import fastify from 'fastify'
-import {PostController} from "./posts/post-controller";
-import {PostAppService} from "./posts/post-app-service";
+import {build} from "./app";
 
-const server = fastify();
+const app = build();
 
-type OriginCallback = (err: Error | null, allow: boolean) => void;
-server.register(require('@fastify/cors'), (instance) => ({
-    origin: (origin: string, callback: OriginCallback) => {
-        const hostname = new URL(origin).hostname
-        if (hostname === "localhost") {
-            callback(null, true)
-            return
-        }
-        // Generate an error on other origins, disabling access
-        callback(new Error("Not allowed"), false)
-    }
-}))
-
-const postController = new PostController(new PostAppService().init());
-
-server.get('/ping', async (request, reply) => {
-    return 'pong\n'
-})
-
-server.get('/posts', postController.getAll.bind(postController));
-
-server.listen(8080, (err, address) => {
+app.listen(8080, (err, address) => {
     if (err) {
         console.error(err)
         process.exit(1)
