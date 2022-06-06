@@ -8,8 +8,8 @@ export function build(opts: FastifyServerOptions = {}): FastifyInstance {
     type OriginCallback = (err: Error | null, allow: boolean) => void;
     app.register(require('@fastify/cors'), (instance) => ({
         origin: (origin: string, callback: OriginCallback) => {
-            const hostname = new URL(origin).hostname
-            if (hostname === "localhost") {
+            const hostname = origin != null ? new URL(origin).hostname : null;
+            if (hostname === "localhost" || hostname == null) {
                 callback(null, true)
                 return
             }

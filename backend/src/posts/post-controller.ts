@@ -10,16 +10,15 @@ export class PostController {
     }
 
     getAll(request: FastifyRequest, reply: FastifyReply): Promise<void> {
-    const dtos: PostDto[] = this.postAppService.allPosts().map(postOutToDto);
-    const posts: PostDtosList = {
-        items: dtos,
-        links: {
+        const dtos: PostDto[] = this.postAppService.allPosts().map(postOutToDto);
+        const posts: PostDtosList = {
+            items: dtos,
+            links: {}
         }
+
+        reply.send(posts);
+
+        return Promise.resolve();
     }
-
-    reply.send(posts);
-
-    return Promise.resolve();
-  }
 
 }

@@ -17,7 +17,7 @@ export class PostAppService {
             intendedAudience: IntendedAudiences.Lazy,
         };
         const announcement: Announcement = {
-            _id: "1",
+            _id: "2",
             createdBy: "1-2-3",
             createdOn: new Date("2021-10-02"),
             title: "Party at Craigs",
