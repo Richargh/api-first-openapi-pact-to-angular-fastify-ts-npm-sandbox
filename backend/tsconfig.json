@@ -1,29 +1,33 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Node 16 + Strictest",
-  "compilerOptions": {
-    "lib": [
-      "es2021"
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Node 16 + Strictest",
+    "compilerOptions": {
+        "lib": [
+            "es2021"
+        ],
+        "baseUrl": "./",
+        "module": "commonjs",
+        "target": "es2021",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowUnusedLabels": false,
+        "allowUnreachableCode": false,
+        "exactOptionalPropertyTypes": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false
+    },
+    "include": [
+        "src/**/*.ts",
+        "../generated/api"
     ],
-    "module": "commonjs",
-    "target": "es2021",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": false,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "importsNotUsedAsValues": "error",
-    "checkJs": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "../node_modules", "../generated/**/*"]
+    "exclude": [
+        "node_modules"
+    ]
 }
