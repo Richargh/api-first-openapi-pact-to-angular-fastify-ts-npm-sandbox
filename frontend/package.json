@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:consumer": "mocha --config=tests/consumer/.mocharc.json"
   },
   "private": true,
   "dependencies": {
@@ -26,13 +27,19 @@
     "@angular-devkit/build-angular": "^14.0.0",
     "@angular/cli": "~14.0.0",
     "@angular/compiler-cli": "^14.0.0",
+    "@pact-foundation/pact": "^9.17.3",
+    "@types/chai": "^4.3.1",
     "@types/jasmine": "~4.0.0",
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.6",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.8.1",
     "typescript": "~4.7.2"
   }
 }

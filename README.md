@@ -11,6 +11,11 @@
 * Backend
   * TypeScript+Fastify
 
+## Requires
+
+* Node 18, because it provides global fetch API
+  * Use [nvm](https://github.com/nvm-sh/nvm) to `nvm use 18`
+
 ## Usage
 
 * Install packages `npm ci --workspaces`
