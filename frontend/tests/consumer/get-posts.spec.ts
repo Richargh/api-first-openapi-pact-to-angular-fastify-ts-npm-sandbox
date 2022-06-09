@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import {expect} from "chai";
 import {Pact} from "@pact-foundation/pact";
 import * as path from "path";
-import {eachLike} from "@pact-foundation/pact/src/dsl/matchers";
+import {eachLike, somethingLike} from "@pact-foundation/pact/src/dsl/matchers";
 import {Configuration, PostsApi } from '../../../generated/api/dist/';
 
 // Setup Pact
@@ -10,7 +10,7 @@ const port = 10030;
 const provider = new Pact({
     port: port,
     log: path.resolve(process.cwd(), "logs", "pact.log"),
-    dir: path.resolve(process.cwd(), "pacts"),
+    dir: path.resolve(process.cwd(), "../backend/pacts"),
     consumer: "OrderWeb",
     provider: "OrderApi"
 });
@@ -42,13 +42,14 @@ describe('Pact with Order API', () => {
                     },
                     willRespondWith: {
                         body: {
-                            items: eachLike({
-                                id: '111-222',
-                                createdBy: 'aaa-bbb',
-                                title: 'Party at Craigs'
-                            }),
+                            items: eachLike(
+                                {
+                                    "id": somethingLike("1"),
+                                    "createdBy": somethingLike("1-2-3"),
+                                    "title": somethingLike("Will there be a party at craigs")
+                                }
+                                ),
                             links: {
-                                next: `http://127.0.0.1:${port}/posts?createdAfterId=1`
                             },
                         },
                         status: 200,
@@ -67,7 +68,9 @@ describe('Pact with Order API', () => {
                 // when
                 const posts = await postsApi.getPosts();
                 // then
-                expect(posts.items).to.have.deep.members([{id: '111-222', createdBy: 'aaa-bbb', title: 'Party at Craigs'}]);
+                expect(posts.items).to.have.deep.members([
+                    {id: '1', createdBy: '1-2-3', title: 'Will there be a party at craigs'}
+                ]);
             })
         })
     })
