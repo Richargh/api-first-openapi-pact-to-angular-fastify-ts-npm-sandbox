@@ -2,6 +2,7 @@
     "name": "shared-dto-codegen-ts-npm-sandbox-backend",
     "version": "1.0.0",
     "description": "",
+    "private": true,
     "main": "server.js",
     "scripts": {
         "build": "tsc -p tsconfig.json",

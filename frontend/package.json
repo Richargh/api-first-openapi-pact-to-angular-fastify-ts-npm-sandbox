@@ -1,17 +1,18 @@
 {
-  "name": "shared-dto-codegen-ts-npm-sandbox-frontend",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:consumer": "mocha --config=tests/consumer/.mocharc.json"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^14.0.0",
+    "name": "shared-dto-codegen-ts-npm-sandbox-frontend",
+    "version": "0.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test",
+        "test:consumer": "mocha --config=tests/consumer/.mocharc.json"
+    },
+    "dependencies": {
+        "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
