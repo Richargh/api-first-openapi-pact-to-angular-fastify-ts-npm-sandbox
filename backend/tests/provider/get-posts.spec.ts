@@ -4,12 +4,17 @@ import * as path from "path";
 import {FastifyInstance} from "fastify";
 import {build} from "../../src/app";
 
+const port = 10030;
+
 describe('Verify Order API Pact', () => {
     let app: FastifyInstance;
 
-    before(async () => {
+    before(async function () {
+        // longer timeout so fastify has time to start
+        this.timeout(10_000);
+
         app = build();
-        await app.listen(10030);
+        await app.listen(port);
     })
 
     after(async () => {

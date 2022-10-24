@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {Pact} from "@pact-foundation/pact";
 import * as path from "path";
 import {eachLike, somethingLike} from "@pact-foundation/pact/src/dsl/matchers";
-import {Configuration, PostsApi } from '../../../generated/api/dist/';
+import {Configuration, PostsApi} from '../../../generated/api/dist/';
 
 // Setup Pact
 const port = 10030;
@@ -16,13 +16,15 @@ const provider = new Pact({
 });
 
 describe('Pact with Order API', () => {
-    before(async () => {
+    before(async function () {
+        // longer timeout so provider has time to start
+        this.timeout(10_000);
         await provider.setup();
-    })
+    });
 
-    after(() => {
+    after(async () => {
         // finalize the contract after the tests have run, i.e. store c
-        provider.finalize();
+        await provider.finalize();
     });
 
     afterEach(async () => {
